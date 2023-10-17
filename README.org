@@ -1,0 +1,13 @@
+#+TITLE: Org-mode src blocks in ci/cd
+
+Because why not??
+
+#+begin_src shell :results output
+echo "Hello world" > output.txt
+cat output.txt
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Hello world
+#+end_example
