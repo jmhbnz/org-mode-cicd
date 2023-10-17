@@ -5,11 +5,14 @@ on: push
 
 jobs:
   run-org:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Set up emacs
-      uses: purcell/setup-emacs@master
-      with:
-        version: 29.1
-    - name: Run org-mode file
-      run: yes yes | ./run.sh README.org && cat output.txt
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up emacs
+        uses: purcell/setup-emacs@master
+        with:
+          version: 29.1
+      - uses: actions/checkout@v4
+      - name: Run org-mode file
+        run: |
+          yes yes | ./run.sh README.org
+          cat output.txt
